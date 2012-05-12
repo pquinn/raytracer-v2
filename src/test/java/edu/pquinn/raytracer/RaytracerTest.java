@@ -7,9 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class RaytracerTest 
-    extends TestCase
-{
+public class RaytracerTest extends TestCase {
     /**
      * Create the test case
      *
