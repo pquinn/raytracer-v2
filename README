@@ -1,0 +1,10 @@
+Phil Quinn
+Last Edit: 5/12
+ --- Raytracer v0.2 ---
+  Compile World.java with standard input {1s.rts, 3s.rts}
+
+ --- To do ---
+  - look at some kind of packaging
+  - refactor for miltithreaded architecture
+  - add tests
+  - check correctness. (not sure 3s even renders in the right way)
