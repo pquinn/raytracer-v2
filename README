@@ -2,10 +2,9 @@ Phil Quinn
 Last Edit: 5/12/2012
  --- Raytracer v0.2 ---
   Currently, running "mvn build" in the base directory will end in success
-  Just run raytracer-v2.jar
+  Just run raytracer-v2.jar and select an RTS file to render
 
  --- To do ---
-  - look at some kind of packaging
   - refactor for miltithreaded architecture
   - add tests
   - check correctness. (not sure 3s even renders in the right way)
