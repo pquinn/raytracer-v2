@@ -23,6 +23,7 @@ import edu.pquinn.raytracer.surface.Plane;
 import edu.pquinn.raytracer.surface.Sphere;
 import edu.pquinn.raytracer.surface.Surface;
 import edu.pquinn.raytracer.util.HitResult;
+import edu.pquinn.raytracer.util.RaytracerUtil;
 import edu.pquinn.raytracer.util.Vector;
 
 /**
@@ -100,7 +101,8 @@ public class World {
 			System.err.println("Error: " + e.toString() + " LOOK HERE");
 			e.printStackTrace();
 		}
-		vertexArray = (Vertex[])vertices.toArray();
+		
+		vertexArray = RaytracerUtil.toVertexArray(vertices.toArray());
 
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
