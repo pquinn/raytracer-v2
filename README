@@ -8,5 +8,4 @@ Last Edit: 5/12/2012
   - refactor for miltithreaded architecture
   - add tests
   - check correctness. (not sure 3s even renders in the right way)
-  - change from standard input to file picker
   - add JavaDoc style comments
