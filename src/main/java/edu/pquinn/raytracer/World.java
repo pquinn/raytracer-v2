@@ -9,11 +9,15 @@ import java.awt.event.WindowEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -34,7 +38,6 @@ import edu.pquinn.raytracer.util.Vector;
  *
  */
 public class World {
-	// variables
 	private static ArrayList<Surface> surfaces;
 	private static ArrayList<Vertex> vertices;
 	private static ArrayList<Light> lights;
@@ -53,6 +56,9 @@ public class World {
 	private static int ny;
 	private static BufferedImage image;
 	private static JFrame frame;
+	
+	private static JFileChooser fileChooser;
+	private static File inputFile;
 
 	// constructor
 	World() {
@@ -84,21 +90,27 @@ public class World {
 		World.nx = 512;
 		World.ny = 512;
 		World.image = new BufferedImage(512, 512, BufferedImage.TYPE_INT_RGB);
+		World.fileChooser = new JFileChooser();
+		fileChooser.addChoosableFileFilter(new MyFilter());
 	}
 
 	// reads the input
 	public void readInput() {
 		try {
-			// Parses the file line by line while it still has lines
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					System.in));
+			int returnVal = fileChooser.showOpenDialog(frame);
+			if(returnVal == JFileChooser.APPROVE_OPTION){
+				inputFile = fileChooser.getSelectedFile();
+			}
+		    FileInputStream fstream = new FileInputStream(inputFile);
+		    DataInputStream in = new DataInputStream(fstream);
+		    BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine = "";
 			while ((strLine = br.readLine()) != null) {
 				String strLine2 = strLine;
 				parseLine(strLine2);
 			}
 		} catch (Exception e) {
-			System.err.println("Error: " + e.toString() + " LOOK HERE");
+			System.err.println("Error: " + e.toString());
 			e.printStackTrace();
 		}
 		
@@ -438,4 +450,15 @@ public class World {
 			}
 		});
 	}
+}
+
+class MyFilter extends javax.swing.filechooser.FileFilter {
+	  public boolean accept(File file) {
+	    String filename = file.getName();
+	    return filename.endsWith(".rts");
+	  }
+
+	  public String getDescription() {
+	    return "*.rts";
+	  }
 }

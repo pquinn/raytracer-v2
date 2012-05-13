@@ -9,3 +9,4 @@ Last Edit: 5/12
   - add tests
   - check correctness. (not sure 3s even renders in the right way)
   - change from standard input to file picker
+  - add JavaDoc style comments

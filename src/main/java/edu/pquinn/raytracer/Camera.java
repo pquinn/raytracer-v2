@@ -3,12 +3,12 @@ package edu.pquinn.raytracer;
 import edu.pquinn.raytracer.util.Vector;
 
 public class Camera {
-	protected int vertex;
-	protected Vector xAxis = new Vector(1, 0, 0);
-	protected Vector yAxis = new Vector(0, 1, 0);
-	protected Vector zAxis = new Vector(0, 0, 1);
-	protected Vector origin = new Vector(0, 0, 0);
-	protected double[] d;
+	private int vertex;
+	private Vector xAxis = new Vector(1, 0, 0);
+	private Vector yAxis = new Vector(0, 1, 0);
+	private Vector zAxis = new Vector(0, 0, 1);
+	private Vector origin = new Vector(0, 0, 0);
+	private double[] d;
 	
 	public Camera(int vertex){
 		this.vertex = vertex;
